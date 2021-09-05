@@ -84,6 +84,7 @@ Promise.race(bases).then(() => {
             color: var(--app-header-text-color, white);
             margin-top: -2px;
             padding-left: 16px;
+            padding-top: 10px;
             box-shadow: none;
             border-radius: 0px;
           }
