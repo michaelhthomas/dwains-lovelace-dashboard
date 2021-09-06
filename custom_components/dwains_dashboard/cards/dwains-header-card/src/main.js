@@ -30,7 +30,7 @@ Promise.race(bases).then(() => {
       if(this._config.subtitle){
         return html`
         <div
-              style="cursor: pointer"
+              style="cursor: pointer; padding-top: 10px;"
               @click="${this._handleClick}"
             >
               <ha-icon
@@ -84,7 +84,6 @@ Promise.race(bases).then(() => {
             color: var(--app-header-text-color, white);
             margin-top: -2px;
             padding-left: 16px;
-            padding-top: 10px;
             box-shadow: none;
             border-radius: 0px;
           }
