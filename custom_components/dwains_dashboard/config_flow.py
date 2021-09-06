@@ -22,6 +22,7 @@ LANGUAGES = [
 ]
 SIDEPANEL_TITLE = "sidepanel_title"
 SIDEPANEL_ICON = "sidepanel_icon"
+ENABLE_SIDEPANEL = "enable_sidepanel"
 THEME = "theme"
 PRIMARY_COLOR = "primary_color"
 THEME_OPTIONS = [
@@ -59,6 +60,7 @@ class DwainsDashboardEditFlow(config_entries.OptionsFlow):
             vol.Optional(LANGUAGE, default=self.config_entry.options.get("language", "English")): vol.In(LANGUAGES),
             vol.Optional(SIDEPANEL_TITLE, default=self.config_entry.options.get("sidepanel_title", "Dwains Dashboard")): str,
             vol.Optional(SIDEPANEL_ICON, default=self.config_entry.options.get("sidepanel_icon", "mdi:alpha-d-box")): str,
+            vol.Optional(ENABLE_SIDEPANEL, default=self.config_entry.options.get("enable_sidepanel", True)): bool,
             vol.Optional(THEME, default=self.config_entry.options.get("theme", "Auto Mode (Dark/Light)")): vol.In(THEME_OPTIONS),
             vol.Optional(PRIMARY_COLOR, default=self.config_entry.options.get("primary_color", "#299ec2")): str,
             vol.Optional(CUSTOMIZE_PATH, default=self.config_entry.options.get("customize_path", "customize.yaml")): str,

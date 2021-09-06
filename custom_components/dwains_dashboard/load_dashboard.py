@@ -14,6 +14,7 @@ def load_dashboard(hass, config_entry):
 
     sidepanel_title = "Dwains Dashboard"
     sidepanel_icon = "mdi:alpha-d-box"
+    enable_sidepanel = True
 
     if("sidepanel_title" in config_entry.options):
         sidepanel_title = config_entry.options["sidepanel_title"]
@@ -21,13 +22,16 @@ def load_dashboard(hass, config_entry):
     if("sidepanel_icon" in config_entry.options):
         sidepanel_icon = config_entry.options["sidepanel_icon"]
 
+    if("enable_sidepanel" in config_entry.options):
+        enable_sidepanel = config_entry.options["enable_sidepanel"]
+
     dashboard_url = "dwains-dashboard"
     dashboard_config = {
         "mode": "yaml",
         "icon": sidepanel_icon,
         "title": sidepanel_title,
         "filename": "custom_components/dwains_dashboard/lovelace/ui-lovelace.yaml",
-        "show_in_sidebar": True,
+        "show_in_sidebar": enable_sidepanel,
         "require_admin": False,
     }
 
