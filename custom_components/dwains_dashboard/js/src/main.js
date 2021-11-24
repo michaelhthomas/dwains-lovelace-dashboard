@@ -1,4 +1,4 @@
-import { deviceID } from "card-tools/src/deviceId";
+import { deviceID } from "card-tools/src/deviceID";
 import { lovelace_view, load_lovelace, lovelace, hass } from "card-tools/src/hass";
 import { popUp, closePopUp } from "card-tools/src/popup";
 import { fireEvent } from "card-tools/src/event";
@@ -67,12 +67,13 @@ class DwainsDashboard {
     window.addEventListener("location-changed", updater);
     window.addEventListener("popstate", updater);
 
-    let link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = 'https://fonts.googleapis.com/css?family=Open+Sans&display=swap';
-    link.media = 'all';
-    document.getElementsByTagName('head')[0].appendChild(link);
+    // Do not load Open Sans since we switched to Roboto which is already loaded :)
+    // let link = document.createElement('link');
+    // link.rel = 'stylesheet';
+    // link.type = 'text/css';
+    // link.href = 'https://fonts.googleapis.com/css?family=Open+Sans&display=swap';
+    // link.media = 'all';
+    // document.getElementsByTagName('head')[0].appendChild(link);
 
     const pjson = require('../package.json');
     console.info(
