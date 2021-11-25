@@ -46,7 +46,7 @@
       css: | 
         padding-bottom: 50px;
         margin: 0 auto;
-        font-family: Roboto, sans-serif !important;
+        font-family: var(--primary-font-family), sans-serif !important;
       card:
         type: vertical-stack
         cards:

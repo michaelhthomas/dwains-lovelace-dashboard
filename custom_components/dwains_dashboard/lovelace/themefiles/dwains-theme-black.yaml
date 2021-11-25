@@ -1,6 +1,6 @@
 dwains-theme-black:
   ### Theme Black for Dwains Theme
-  primary-font-family: 'Open Sans'
+  primary-font-family: 'Roboto'
 
   dwains-theme-background: '#000000'
   dwains-theme-primary: '#121212'

@@ -1,6 +1,6 @@
 dwains-theme-white:
   ### Theme White for Dwains Theme
-  primary-font-family: 'Open Sans'
+  primary-font-family: 'Roboto'
 
   dwains-theme-background: '#ffffff'
   dwains-theme-primary: '#fafafa'

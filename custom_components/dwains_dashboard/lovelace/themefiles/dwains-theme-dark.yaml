@@ -1,6 +1,6 @@
 dwains-theme-dark:
   ### Theme Dark for Dwains Theme
-  primary-font-family: 'Open Sans'
+  primary-font-family: 'Roboto'
 
   #This one will be replaced in the js with own accent color set by user
   dwains-theme-accent: 'placeholder_primary_color'

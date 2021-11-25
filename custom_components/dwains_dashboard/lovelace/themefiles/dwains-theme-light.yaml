@@ -1,6 +1,6 @@
 dwains-theme-light:
   ### Theme Light for Dwains Theme
-  primary-font-family: 'Open Sans'
+  primary-font-family: 'Roboto'
 
   dwains-theme-background: '#f2f2f7'
   dwains-theme-primary: '#FFFFFF'
