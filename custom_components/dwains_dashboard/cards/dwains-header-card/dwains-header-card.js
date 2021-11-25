@@ -40,7 +40,7 @@
           }
           @media only screen and (min-width: 1466px) {
             ha-card {
-              margin-top: 22px;
+              margin: 22px 11px 0px 11px;
               border-radius: 4px;
             }
           }
