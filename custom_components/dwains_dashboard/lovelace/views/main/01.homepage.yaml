@@ -59,131 +59,137 @@
               border-radius: 0;
               overflow: hidden;
             card:
-              type: custom:dwains-flexbox-card
-              padding: true
-              cards:
-                - type: custom:dwains-flexbox-card
-                  item_classes: 'col-xs-12 col-sm-6 col-md-5 col-lg-4'
-                  cards:
-                    - type: custom:button-card
-                      item_classes: 'col-xs-3 d-block d-sm-none'
-                      template: header_house_information
-                    {% if _dd_config.global["weather"] %}
-                    - type: custom:button-card
-                      item_classes: 'col-xs-6 d-block d-sm-none'
-                      template: header_weather
-                    {% endif %}
-                    {% if _dd_config.global["alarm"] %}
-                    - type: custom:button-card
-                      item_classes: 'col-xs-3 d-block d-sm-none'
-                      template: header_alarm
-                      entity: {{ _dd_config.global["alarm"] }}                        
-                    {% endif %}
-                    - type: horizontal-stack
-                      item_classes: 'col-xs-12 d-none d-sm-block'
-                      cards: 
-                        - type: custom:button-card
-                          template: header_house_information_large
-                        {% if _dd_config.global["alarm"] %}
-                        - type: custom:button-card
-                          template: header_alarm_large
-                          entity: {{ _dd_config.global["alarm"] }}
-                        {% endif %}
-                    - type: custom:dwains-notification-card
-                      item_classes: 'col-xs-12'
-                      style: |
-                        ha-card {
-                          padding: 0px;
-                        }
-                        #title {
-                          color: var(--dwains-theme-header-text);
-                          font-size: 22px;
-                          font-weight: bold;
-                        }                        
-                      title: >
-                        [[[
-                          var today = new Date()
-                          var curHr = today.getHours()
-
-                          if (curHr < 12) {
-                            return "{{ _dd_trans.greetings.good_morning }}";
-                          } else if (curHr < 18) {
-                            return "{{ _dd_trans.greetings.good_afternoon }}";
-                          } else {
-                            return "{{ _dd_trans.greetings.good_evening }}";
-                          }
-                        ]]]
-                      max_notifications: 2
-                      navigation_path: more_page_notifications
-                {% if _dd_config.global["weather"] %}
-                - type: custom:dwains-weather-card
-                  item_classes: 'd-none d-sm-block col-sm-6 col-md-3 col-lg-3'
-                  entity: {{ _dd_config.global["weather"] }}
-                  {% if _dd_config.global["outside_temperature"] %}
-                  {% if _dd_config.global["outside_temperature"].split('.')[0] == 'sensor' %}
-                  tempsensor_entity: {{ _dd_config.global["outside_temperature"] }}
-                  {% endif %}
-                  {% endif %}
-                  style: |
-                    ha-card {
-                      background: var(--dwains-theme-header-button-background) !important;
-                    }
-                    .variations, .variations ha-icon, #main {
-                      color: var(--dwains-theme-header-button-text) !important;
-                    }
-                {% endif %}
-                #Start header states
-                - type: custom:dwains-wrapper-card
-                  item_classes: 'col-12 col-sm-12 col-md-4 col-lg-5'
-                  css: |
-                    ha-card {
-                      margin-top: 5px;
-                    }
-                    @media only screen and (min-width: 600px) {
-                      ha-card {
-                        margin-top: 15px;
-                      }
-                    }
-                  card:
-                    type: custom:dwains-collapse-card
-                    card_width: '62px'
+              type: custom:dwains-wrapper-card
+              css: |
+                display: block;
+                max-width: 1465px;
+                margin: 0 auto;
+              card:
+                type: custom:dwains-flexbox-card
+                padding: true
+                cards:
+                  - type: custom:dwains-flexbox-card
+                    item_classes: 'col-xs-12 col-sm-6 col-md-5 col-lg-4'
                     cards:
-                      {% if _dd_config.persons %}
-                      {% for person in _dd_config.persons %}
                       - type: custom:button-card
-                        template: header_states_person
-                        entity: {{ person["track"] }}
-                        name: {{ person["name"] }}
-                        tap_action: 
-                          action: navigate
-                          navigation_path: {{ person["name"]|lower|replace("'", "_")|replace(" ", "_")  }}
-                      {% endfor %}
+                        item_classes: 'col-xs-3 d-block d-sm-none'
+                        template: header_house_information
+                      {% if _dd_config.global["weather"] %}
+                      - type: custom:button-card
+                        item_classes: 'col-xs-6 d-block d-sm-none'
+                        template: header_weather
                       {% endif %}
+                      {% if _dd_config.global["alarm"] %}
                       - type: custom:button-card
-                        template: header_states_safety
-                      - type: custom:button-card
-                        template: header_states_door
-                      - type: custom:button-card
-                        template: header_states_window
-                      - type: custom:button-card
-                        template: header_states_lock
-                      - type: custom:button-card
-                        template: header_states_light
-                      - type: custom:button-card
-                        template: header_states_climate
-                      - type: custom:button-card
-                        template: header_states_cover
-                      - type: custom:button-card
-                        template: header_states_device
-                      - type: custom:button-card
-                        template: header_states_media_player
-                      - type: custom:button-card
-                        template: header_states_vacuum
-                      - type: custom:button-card
-                        template: header_states_plant
-                      - type: custom:button-card
-                        template: header_states_vibration
-                #End header states
+                        item_classes: 'col-xs-3 d-block d-sm-none'
+                        template: header_alarm
+                        entity: {{ _dd_config.global["alarm"] }}                        
+                      {% endif %}
+                      - type: horizontal-stack
+                        item_classes: 'col-xs-12 d-none d-sm-block'
+                        cards: 
+                          - type: custom:button-card
+                            template: header_house_information_large
+                          {% if _dd_config.global["alarm"] %}
+                          - type: custom:button-card
+                            template: header_alarm_large
+                            entity: {{ _dd_config.global["alarm"] }}
+                          {% endif %}
+                      - type: custom:dwains-notification-card
+                        item_classes: 'col-xs-12'
+                        style: |
+                          ha-card {
+                            padding: 0px;
+                          }
+                          #title {
+                            color: var(--dwains-theme-header-text);
+                            font-size: 22px;
+                            font-weight: bold;
+                          }                        
+                        title: >
+                          [[[
+                            var today = new Date()
+                            var curHr = today.getHours()
+
+                            if (curHr < 12) {
+                              return "{{ _dd_trans.greetings.good_morning }}";
+                            } else if (curHr < 18) {
+                              return "{{ _dd_trans.greetings.good_afternoon }}";
+                            } else {
+                              return "{{ _dd_trans.greetings.good_evening }}";
+                            }
+                          ]]]
+                        max_notifications: 2
+                        navigation_path: more_page_notifications
+                  {% if _dd_config.global["weather"] %}
+                  - type: custom:dwains-weather-card
+                    item_classes: 'd-none d-sm-block col-sm-6 col-md-3 col-lg-3'
+                    entity: {{ _dd_config.global["weather"] }}
+                    {% if _dd_config.global["outside_temperature"] %}
+                    {% if _dd_config.global["outside_temperature"].split('.')[0] == 'sensor' %}
+                    tempsensor_entity: {{ _dd_config.global["outside_temperature"] }}
+                    {% endif %}
+                    {% endif %}
+                    style: |
+                      ha-card {
+                        background: var(--dwains-theme-header-button-background) !important;
+                      }
+                      .variations, .variations ha-icon, #main {
+                        color: var(--dwains-theme-header-button-text) !important;
+                      }
+                  {% endif %}
+                  #Start header states
+                  - type: custom:dwains-wrapper-card
+                    item_classes: 'col-12 col-sm-12 col-md-4 col-lg-5'
+                    css: |
+                      ha-card {
+                        margin-top: 5px;
+                      }
+                      @media only screen and (min-width: 600px) {
+                        ha-card {
+                          margin-top: 15px;
+                        }
+                      }
+                    card:
+                      type: custom:dwains-collapse-card
+                      card_width: '62px'
+                      cards:
+                        {% if _dd_config.persons %}
+                        {% for person in _dd_config.persons %}
+                        - type: custom:button-card
+                          template: header_states_person
+                          entity: {{ person["track"] }}
+                          name: {{ person["name"] }}
+                          tap_action: 
+                            action: navigate
+                            navigation_path: {{ person["name"]|lower|replace("'", "_")|replace(" ", "_")  }}
+                        {% endfor %}
+                        {% endif %}
+                        - type: custom:button-card
+                          template: header_states_safety
+                        - type: custom:button-card
+                          template: header_states_door
+                        - type: custom:button-card
+                          template: header_states_window
+                        - type: custom:button-card
+                          template: header_states_lock
+                        - type: custom:button-card
+                          template: header_states_light
+                        - type: custom:button-card
+                          template: header_states_climate
+                        - type: custom:button-card
+                          template: header_states_cover
+                        - type: custom:button-card
+                          template: header_states_device
+                        - type: custom:button-card
+                          template: header_states_media_player
+                        - type: custom:button-card
+                          template: header_states_vacuum
+                        - type: custom:button-card
+                          template: header_states_plant
+                        - type: custom:button-card
+                          template: header_states_vibration
+                  #End header states
           #END HOMEPAGE HEADER
 
           #START HOMEPAGE CONTENT
