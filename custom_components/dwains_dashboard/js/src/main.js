@@ -305,9 +305,7 @@ Promise.race(bases).then(() => {
       return [
         css`
         #dwains_dashboard {
-          max-width: 1465px;
           padding-bottom: 50px;
-          margin: 0 auto;
         }
         ha-fab {
           font-size: 18px;
@@ -342,7 +340,6 @@ Promise.race(bases).then(() => {
       return html`
         <div id="dwains_dashboard">
           ${this.cards.map((card) => html`${card}`)}
-          
         </div>
       `;
     }
