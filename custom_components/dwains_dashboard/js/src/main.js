@@ -308,7 +308,6 @@ Promise.race(bases).then(() => {
           max-width: 1465px;
           padding-bottom: 50px;
           margin: 0 auto;
-          font-family: "Open Sans", sans-serif !important;
         }
         ha-fab {
           font-size: 18px;
